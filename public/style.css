@@ -638,3 +638,35 @@ body {
     .product-details { gap: 16px; padding: 16px; }
     .product-details-info { width: 100%; }
 }
+.cart-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cart-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cart-item .details,
+.cart-item .cart-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item p,
+.cart-item span,
+.cart-item button {
+  white-space: nowrap;
+}
+
+.cart-item h3,
+.cart-item h4 {
+  white-space: normal;
+  margin: 0 0 4px;
