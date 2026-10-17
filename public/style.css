@@ -670,3 +670,10 @@ body {
 .cart-item h4 {
   white-space: normal;
   margin: 0 0 4px;
+}
+h2, .section-title {
+  color: #d6338a;           /* pink, mababasa */
+  text-shadow: 0 2px 0 #fff, 0 0 8px rgba(255,255,255,.9);
+  text-align: center;
+}
+.dancer { width: 170px; display: block; margin: 0 auto -10px; }
