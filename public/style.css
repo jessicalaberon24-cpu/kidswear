@@ -677,3 +677,10 @@ h2, .section-title {
   text-align: center;
 }
 .dancer { width: 170px; display: block; margin: 0 auto -10px; }
+
+h1, h2, .section-title {
+  color: #d6338a !important;
+  -webkit-text-fill-color: #d6338a !important;
+  text-shadow: 0 2px 0 #fff, 0 0 8px rgba(255,255,255,.9) !important;
+  text-align: center;
+}
