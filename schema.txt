@@ -1,0 +1,62 @@
+CREATE DATABASE IF NOT EXISTS domingo_kids_wear;
+USE domingo_kids_wear;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    order_number VARCHAR(50) NOT NULL UNIQUE,
+    total DECIMAL(10,2) NOT NULL DEFAULT 0,
+    payment_method VARCHAR(50) NOT NULL,
+    payment_status VARCHAR(50) DEFAULT 'Pending',
+    order_status VARCHAR(50) DEFAULT 'To Pay',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    product_name VARCHAR(150) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    size VARCHAR(30) NOT NULL DEFAULT 'Not selected',
+    subtotal DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+);
+
+-- Five Domingo Kids Wear product listings with shop-style descriptions.
+-- Run this SQL in a NEW project database.
+INSERT INTO products (name, description, price, image) VALUES
+('Kids Wear 1', 'Everyday Kids Outfit | Soft-feel, lightweight and comfortable for playtime, school days and family outings. Easy-to-style kids fashion. Please check the size guide and select your child’s size before adding to cart. Care: gentle wash with similar colors.', 399.00, 'images/image1.jpg'),
+('Kids Wear 2', 'Cute & Comfy Kids Wear | A comfortable everyday outfit designed for little ones on the move. Great for casual days, playdates and outings. Check the size guide and choose the best fit before checkout. Care: gentle wash; avoid harsh bleach.', 475.00, 'images/image2.jpg'),
+('Kids Wear 3', 'Playtime Ready Kids Outfit | Made for everyday comfort and easy movement. A lovely choice for casual wear, visits and weekend activities. Please select a size and check fit details before ordering. Care: wash with similar colors.', 550.00, 'images/image3.jpg'),
+('Kids Wear 4', 'Stylish Kids Outfit | A versatile look for everyday wear, celebrations and family photos. Comfortable styling for busy little days. Review the size options carefully before adding to cart. Care: gentle wash and air-dry when possible.', 625.00, 'images/image4.jpg'),
+('Kids Wear 5', 'Trendy Kids Fashion | A cute addition to your child’s wardrobe for outings, casual occasions and everyday adventures. Choose the right size before checkout for a better fit. Care: follow garment care instructions and wash with similar colors.', 750.00, 'images/image5.jpg');
+
+-- If this database was created with an older version of this project, run this once:
+-- ALTER TABLE order_items ADD COLUMN size VARCHAR(30) NOT NULL DEFAULT 'Not selected' AFTER quantity;
+
+
+
+
+2.paste 
+ALTER TABLE order_items
+ADD COLUMN size VARCHAR(50) NULL;

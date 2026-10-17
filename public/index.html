@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Domingo Kids Wear 👕
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Domingo Kids Wear 👕
+        </div>
+
+        <div class="nav-links">
+
+            <button id="loginNavBtn" data-section="login" onclick="showSection('login')">
+                Login
+            </button>
+
+            <button id="registerNavBtn" data-section="register" onclick="showSection('register')">
+                Sign Up
+            </button>
+
+            <button id="productsNavBtn" data-auth="required" data-section="products" onclick="showSection('products')">
+                Products
+            </button>
+
+            <button id="checkoutNavBtn" data-auth="required" data-section="cart" onclick="showSection('cart')">
+                Checkout
+                <span id="cartCount">
+                    0
+                </span>
+            </button>
+
+            <button id="ordersNavBtn" data-auth="required" data-section="orders" onclick="showSection('orders')">
+                My Orders
+            </button>
+
+            <button id="receiptNavBtn" data-auth="required" data-section="receipt" onclick="showSection('receipt')">
+                Receipt
+            </button>
+
+            <button
+                id="logoutBtn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <main>
+
+
+        <!-- =========================
+             LOGIN
+        ========================== -->
+
+        <section
+            id="login"
+            class="section"
+        >
+
+            <div class="form-box">
+
+                <h2>
+                    Login
+                </h2>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Email"
+                >
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password"
+                >
+
+                <button
+                    onclick="login()"
+                >
+                    Login
+                </button>
+
+                <p>
+                    Don't have an account?
+                    <a
+                        href="#"
+                        onclick="showSection('register')"
+                    >
+                        Sign Up
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             REGISTER
+        ========================== -->
+
+        <section
+            id="register"
+            class="section"
+        >
+
+            <div class="form-box">
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Full Name"
+                >
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Email"
+                >
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Password"
+                >
+
+                <button
+                    onclick="register()"
+                >
+                    Sign Up
+                </button>
+
+                <p>
+                    Already have an account?
+                    <a
+                        href="#"
+                        onclick="showSection('login')"
+                    >
+                        Login
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRODUCTS
+        ========================== -->
+
+        <section
+            id="products"
+            class="section"
+        >
+
+            <h2 class="section-title">
+                Kids Wear Collection
+            </h2>
+
+            <div
+                id="productsContainer"
+                class="products-container"
+            >
+                <!-- Products will appear here -->
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRODUCT VIEW
+        ========================== -->
+
+        <section
+            id="productView"
+            class="section"
+        >
+
+            <div
+                id="productViewContainer"
+            >
+                <!-- Product details will appear here -->
+            </div>
+
+        </section>
+
+        <!-- =========================
+             CART
+        ========================== -->
+
+        <section
+            id="cart"
+            class="section"
+        >
+
+            <h2>
+                My Cart 🛒
+            </h2>
+
+            <div
+                id="cartContainer"
+                class="cart-container"
+            >
+                <!-- Cart items will appear here -->
+            </div>
+
+            <div
+                id="cartTotal"
+                class="cart-total"
+            >
+                Total: ₱0.00
+            </div>
+
+            <button
+                class="checkout-btn"
+                onclick="openPaymentModal()"
+            >
+                Checkout
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             ORDERS
+        ========================== -->
+
+        <section
+            id="orders"
+            class="section"
+        >
+
+            <h2>
+                My Orders 📦
+            </h2>
+
+            <div
+                id="ordersContainer"
+                class="orders-container"
+            >
+                <!-- Orders will appear here -->
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RECEIPT (latest/current order)
+        ========================== -->
+        <section id="receipt" class="section">
+            <h2>My Receipt 🧾</h2>
+            <div id="receiptContainer" class="receipt-container">
+                <p>Login and open Receipt to view your latest order receipt.</p>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         PAYMENT MODAL
+    ========================== -->
+
+    <div
+        id="paymentModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <span
+                class="close"
+                onclick="closePaymentModal()"
+            >
+                &times;
+            </span>
+
+            <h2>
+                Select Payment Method
+            </h2>
+
+            <div class="payment-options">
+
+                <button
+                    onclick="payWithMaya()"
+                >
+                    💳 Pay with Maya
+                </button>
+
+                <button
+                    onclick="payWithCOD()"
+                >
+                    💵 Cash on Delivery
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script
+        src="script.js"
+    ></script>
+
+</body>
+
+</html>
