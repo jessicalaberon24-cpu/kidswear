@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
+  <style>
+    .sway   { transform-origin: 150px 365px; animation: sway 1.4s ease-in-out infinite; }
+    .armL   { transform-origin: 120px 205px; animation: armL 1.4s ease-in-out infinite; }
+    .armR   { transform-origin: 180px 205px; animation: armR 1.4s ease-in-out infinite; }
+    .tailL  { transform-origin: 100px 95px;  animation: tailL 1.4s ease-in-out infinite; }
+    .tailR  { transform-origin: 200px 95px;  animation: tailR 1.4s ease-in-out infinite; }
+    .skirt  { transform-origin: 150px 195px; animation: skirt 0.7s ease-in-out infinite; }
+    .shadow { transform-origin: 150px 372px; animation: shadow 0.7s ease-in-out infinite; }
+    .sparkle{ animation: twinkle 1.4s ease-in-out infinite; }
+    .sparkle2{ animation: twinkle 1.4s ease-in-out infinite .7s; }
+    @keyframes sway   { 0%,100%{ transform: rotate(-5deg) translateY(0);} 25%{ transform: rotate(0deg) translateY(-12px);} 50%{ transform: rotate(5deg) translateY(0);} 75%{ transform: rotate(0deg) translateY(-12px);} }
+    @keyframes armL   { 0%,100%{ transform: rotate(-14deg);} 50%{ transform: rotate(10deg);} }
+    @keyframes armR   { 0%,100%{ transform: rotate(14deg);}  50%{ transform: rotate(-10deg);} }
+    @keyframes tailL  { 0%,100%{ transform: rotate(10deg);}  50%{ transform: rotate(-12deg);} }
+    @keyframes tailR  { 0%,100%{ transform: rotate(-10deg);} 50%{ transform: rotate(12deg);} }
+    @keyframes skirt  { 0%,100%{ transform: scaleX(1);} 50%{ transform: scaleX(1.06);} }
+    @keyframes shadow { 0%,100%{ transform: scaleX(1); opacity:.25;} 50%{ transform: scaleX(.85); opacity:.15;} }
+    @keyframes twinkle{ 0%,100%{ opacity:0; transform: scale(.5);} 50%{ opacity:1; transform: scale(1);} }
+  </style>
+
+  <!-- sparkles -->
+  <g class="sparkle" style="transform-origin:40px 60px"><path d="M40 45 L44 57 L56 60 L44 63 L40 75 L36 63 L24 60 L36 57 Z" fill="#ffd54f"/></g>
+  <g class="sparkle2" style="transform-origin:265px 90px"><path d="M265 75 L269 87 L281 90 L269 93 L265 105 L261 93 L249 90 L261 87 Z" fill="#ff8ac4"/></g>
+  <g class="sparkle2" style="transform-origin:35px 250px"><path d="M35 240 L38 248 L46 250 L38 252 L35 260 L32 252 L24 250 L32 248 Z" fill="#7fd6f5"/></g>
+
+  <!-- shadow -->
+  <ellipse class="shadow" cx="150" cy="372" rx="62" ry="9" fill="#000" opacity=".25"/>
+
+  <g class="sway">
+    <!-- hair tails (behind) -->
+    <g class="tailL"><path d="M100 95 C45 90 30 150 52 205 C62 170 85 150 100 140 Z" fill="#4a2c2a"/><circle cx="98" cy="98" r="9" fill="#ff5fa8"/></g>
+    <g class="tailR"><path d="M200 95 C255 90 270 150 248 205 C238 170 215 150 200 140 Z" fill="#4a2c2a"/><circle cx="202" cy="98" r="9" fill="#ff5fa8"/></g>
+
+    <!-- legs & shoes -->
+    <rect x="124" y="305" width="14" height="52" rx="7" fill="#ffe0cf"/>
+    <rect x="162" y="305" width="14" height="52" rx="7" fill="#ffe0cf"/>
+    <rect x="124" y="338" width="14" height="10" fill="#fff"/>
+    <rect x="162" y="338" width="14" height="10" fill="#fff"/>
+    <ellipse cx="127" cy="361" rx="17" ry="9" fill="#ff5fa8"/>
+    <ellipse cx="173" cy="361" rx="17" ry="9" fill="#ff5fa8"/>
+    <circle cx="121" cy="359" r="3" fill="#fff"/><circle cx="167" cy="359" r="3" fill="#fff"/>
+
+    <!-- left arm holding shirt -->
+    <g class="armL">
+      <path d="M120 205 L72 168" stroke="#ffe0cf" stroke-width="13" stroke-linecap="round" fill="none"/>
+      <circle cx="70" cy="166" r="9" fill="#ffe0cf"/>
+      <path d="M70 160 L70 148 Q70 140 76 140" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M70 150 L44 164" stroke="#888" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M70 150 L96 164" stroke="#888" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M48 166 L60 160 Q70 170 80 160 L92 166 L100 182 L88 186 L86 214 L54 214 L52 186 L40 182 Z" fill="#6ec6f0" stroke="#3fa4d6" stroke-width="2"/>
+      <circle cx="70" cy="190" r="3" fill="#fff"/><circle cx="70" cy="202" r="3" fill="#fff"/>
+    </g>
+
+    <!-- right arm holding mini dress -->
+    <g class="armR">
+      <path d="M180 205 L228 168" stroke="#ffe0cf" stroke-width="13" stroke-linecap="round" fill="none"/>
+      <circle cx="230" cy="166" r="9" fill="#ffe0cf"/>
+      <path d="M230 160 L230 148 Q230 140 236 140" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M230 150 L206 164" stroke="#888" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M230 150 L254 164" stroke="#888" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M214 168 L224 166 Q230 174 236 166 L246 168 L244 184 L262 222 L198 222 L216 184 Z" fill="#ffd54f" stroke="#f2b705" stroke-width="2"/>
+      <path d="M202 216 Q230 228 258 216" stroke="#fff" stroke-width="3" fill="none"/>
+    </g>
+
+    <!-- neck + dress -->
+    <rect x="143" y="172" width="14" height="22" fill="#ffe0cf"/>
+    <g class="skirt">
+      <path d="M116 192 Q150 182 184 192 L216 312 Q150 332 84 312 Z" fill="#ff5fa8"/>
+      <path d="M84 312 Q150 332 216 312 L218 322 Q150 344 82 322 Z" fill="#ff8ac4"/>
+      <circle cx="120" cy="250" r="5" fill="#fff" opacity=".9"/><circle cx="165" cy="232" r="5" fill="#fff" opacity=".9"/>
+      <circle cx="150" cy="282" r="5" fill="#fff" opacity=".9"/><circle cx="190" cy="285" r="5" fill="#fff" opacity=".9"/>
+      <circle cx="108" cy="290" r="5" fill="#fff" opacity=".9"/>
+    </g>
+    <path d="M118 192 Q150 214 182 192 L184 204 Q150 226 116 204 Z" fill="#fff"/>
+    <path d="M138 214 L150 222 L162 214 L150 232 Z" fill="#ff2f8f"/>
+
+    <!-- head -->
+    <circle cx="150" cy="115" r="66" fill="#4a2c2a"/>
+    <circle cx="150" cy="125" r="56" fill="#ffe8da"/>
+    <path d="M90 112 Q150 28 210 112 Q192 88 172 104 Q150 76 128 104 Q108 88 90 112 Z" fill="#4a2c2a"/>
+    <!-- eyes -->
+    <ellipse cx="126" cy="130" rx="12" ry="16" fill="#3b2a6b"/>
+    <ellipse cx="174" cy="130" rx="12" ry="16" fill="#3b2a6b"/>
+    <ellipse cx="126" cy="134" rx="8" ry="10" fill="#7a5bd6"/>
+    <ellipse cx="174" cy="134" rx="8" ry="10" fill="#7a5bd6"/>
+    <circle cx="121" cy="123" r="5" fill="#fff"/><circle cx="169" cy="123" r="5" fill="#fff"/>
+    <circle cx="131" cy="139" r="2.5" fill="#fff"/><circle cx="179" cy="139" r="2.5" fill="#fff"/>
+    <!-- brows, blush, mouth -->
+    <path d="M114 108 Q126 101 138 108" stroke="#4a2c2a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M162 108 Q174 101 186 108" stroke="#4a2c2a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="108" cy="152" rx="10" ry="6" fill="#ff9fc4" opacity=".7"/>
+    <ellipse cx="192" cy="152" rx="10" ry="6" fill="#ff9fc4" opacity=".7"/>
+    <path d="M138 156 Q150 176 162 156 Q150 160 138 156 Z" fill="#c2255c"/>
+    <path d="M144 163 Q150 169 156 163" fill="#ff8aa8"/>
+    <!-- bow -->
+    <path d="M150 62 L120 44 L120 80 Z" fill="#ff2f8f"/>
+    <path d="M150 62 L180 44 L180 80 Z" fill="#ff2f8f"/>
+    <circle cx="150" cy="62" r="8" fill="#ff8ac4"/>
+  </g>
+</svg>
